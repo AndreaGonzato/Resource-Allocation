@@ -1,28 +1,20 @@
 from TimeTable import TimeTable
 
 class Resource:
-    def __init__(self, name, timetable) -> None:
+    def __init__(self, name:str) -> None:
         self.name = name
-        self.timetable = timetable
-        self.calendar = [[0 for _ in range(timetable.slots_per_day)] for _ in range(timetable.days)]
     
-    def set_unavailability(self, day, slot_index):
-        self.calendar[day][slot_index] = -1
-
-    def print_calendar(self):
-        # Print the 2D array
-        first_line= "day\slot:"
-        for i in range(self.timetable.slots_per_day):
-            first_line += "\t"+str(i)
-        print(first_line)
-
-        day = 0
-        for row in self.calendar:
-            line = "day: "+str(day)+"\t"
-            for slot in row:
-                line+= "\t"+str(slot)
-            print(line)
-            day+=1
+    def init_calendar(self, days:int, slots_per_day:int) -> TimeTable:
+        self.calendar = TimeTable(days=days, slots_per_day=slots_per_day)
+        return self.calendar
     
+    def get_calendar(self) -> TimeTable:
+        return self.calendar
+
+    
+    def set_unavailability(self, day:int, slot_index:int)  -> None:
+        self.calendar.set_unavailability(day, slot_index)
+
+
     def __repr__(self) -> str:
         return self.name
