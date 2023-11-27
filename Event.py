@@ -1,7 +1,8 @@
 from Person import Person
+from Resource import Resource
 
 class Event:
-    def __init__(self, name, responsible:Person, resources:list, requested_hours, start_day:int = 0) -> None:
+    def __init__(self, name, responsible:Person, resources:list[Resource], requested_hours, start_day:int = 0) -> None:
         self.name = name
         self.responsible = responsible
         self.resources = resources

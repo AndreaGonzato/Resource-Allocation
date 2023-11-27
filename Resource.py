@@ -4,8 +4,8 @@ class Resource:
     def __init__(self, name:str) -> None:
         self.name = name
     
-    def init_calendar(self, days:int, slots_per_day:int) -> TimeTable:
-        self.calendar = TimeTable(days=days, slots_per_day=slots_per_day)
+    def init_calendar(self, days:int, slots:list) -> TimeTable:
+        self.calendar = TimeTable(days=days, slots=slots)
         return self.calendar
     
     def get_calendar(self) -> TimeTable:
