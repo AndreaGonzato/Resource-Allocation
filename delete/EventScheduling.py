@@ -1,4 +1,4 @@
-from Event import Event
+from delete.Event import Event
 import pandas as pd
 
 class EventScheduling:
